@@ -8,4 +8,13 @@
     
     >console.log("Hello, world!");
     Hello world
-    undefined
+    >undefined
+    
+*Podemos ejecutar node.js desde un archivo en nuestro directorio de nuestro equipo*
+
+        console.log(Hello, Wolrd!); //file.js
+        
+        $ node file.js
+        Hello, Wolrd!
+        
+        
