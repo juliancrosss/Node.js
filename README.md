@@ -134,4 +134,45 @@ Salida de NPM
 
         $ npm update
 
+*Resumen*
+
+* instalacion de Node
+* instalacion y uso de Node Package Manager
+* usar npm para instalar, desinstalar paquetes de terceros
+* podemos usar package.json junto con npm para manegar paquetes de terceros o dependencias
+* 
+
+#Introduccion a Node
+
+*Programación dirigida por eventos es un estilo de programación por lo que el flujo de ejecución está determinada por los eventos. Eventos son manegadores por controladores de eventos o callback eventos. Un Evento callback es una funccion que es invocado cuando algo significante sucede- tal como cuando el resultado de un query de una  base de datos es disponible o cuando el usuario clickea un boton.*
+
+*Considere como un query a una base de datos es completada en tipica programacion de  I/O.*
+
+        result = query('SELECT * FROM posts WHERE id = 1');
+        do_something_with(result);
+        
+*Este query requiere que el actual hilo o proceso espere hasta la base de datos finialice el proceso.*
+
+*en un Event-Driven system, este query deberia realizarse de esta manera:*
+
+        query_finished = function(result){
+            do_something_with(result);
+        }
+        query('SELECT * FROM posts WHERE id = 1', query_finished);
+        
+*Aqui estamos definiendo que sucedera cuando el query es finalizado y almacenando en esa funccion llamada query_finished. Entonces estamos pasando esa funccion como un argumento a la query. Cuando finaliza , la consulta involcara a la funcion  query_finished, en lugar de un simple retruno de resultado*
+
+*Este estilo de programacion, por lo cual en lugar de usar un valor de retorno definimos funciones que son llamadas por el sistema cuando un interesante evento ocurre- es llamado event-driven o asynchronous programming "programacion asincronica". Esta es una de la definiciones de las carateristicas de Node. Este estilo de programacion significa el proceso actual no bloqueara cuando este haciendo un I/O operaciones. Sin embargo, varias I/O operaciones pueden ocurrir en paralelo. y cada respectivo callback function sera invocada cuando la operacion finalice.*
+
+*El event-driven programming estilo esta acompañado por un event loop. un event loop es una contruccion que principalmente realiza dos funcciones en un continuo loop-event detection y event handler triggering, el event loop debe determinar el evento callback y invocarlo.*
+
+*Este Event loop es justo un hilo ejecutandose dentro de un proceso, el cual significa que cuando un event sucede, el event handler puede ejecutarse sin interrupion. esto significa lo siguiente:*
+
+* Hay al menos un event handler ejecutandose en un momento dado.
+* cualquier event handler se ejecutara para la terminacion sin comenzado una interupcion
+* 
+
+*Esto permite a los programadores para relajarse el sincronico requerimientos y no tener que preocuparse sobre los concurrentes hilos de ejecucion cambiando para compartir el estado de memoria*
+
+
 
