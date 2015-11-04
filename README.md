@@ -175,4 +175,6 @@ Salida de NPM
 *Esto permite a los programadores para relajarse el sincronico requerimientos y no tener que preocuparse sobre los concurrentes hilos de ejecucion cambiando para compartir el estado de memoria*
 
 
+##COMO NODE Y JAVASCRIPT HACE POSIBLE ESCRIBIR ASINCRONO APLICACIONES FACILMENTE
+
 
